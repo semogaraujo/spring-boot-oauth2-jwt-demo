@@ -2,11 +2,14 @@ package com.devsuperior.demo.entities;
 
 import java.util.Objects;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import jakarta.persistence.*;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_role")
-public class Role {
+public class Role implements GrantedAuthority{
 
 
     @Id
@@ -30,6 +33,7 @@ public class Role {
 		this.id = id;
 	}
 
+	@Override
 	public String getAuthority() {
 		return authority;
 	}
